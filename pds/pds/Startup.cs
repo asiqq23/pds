@@ -37,6 +37,8 @@ namespace pds
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            new ConsulClientWrapper().RegisterRoutes().RunSynchronously();
+
             app.UseMvc();
         }
     }
